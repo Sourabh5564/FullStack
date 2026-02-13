@@ -1,0 +1,70 @@
+/* Default Light Theme */
+:root {
+    --bg: #f4f6f8;
+    --text: #000;
+    --card: #fff;
+}
+/* Dark Theme Variables */
+.dark {
+    --bg: #1e1e2f;
+    --text: #fff;
+    --card: #2c2c3e;
+}
+/* Global Styling */
+body {
+    margin: 2;
+    font-family: Arial;
+    background: var(--bg);
+    color: var(--text);
+}
+/* CSS Grid Dashboard */
+.dashboard {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 60px 1fr 40px;
+    height: 100vh;
+}
+
+/* Grid Areas */
+.header 
+  {
+    grid-area: header; 
+    background: var(--card); 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;
+  }
+
+.sidebar 
+  {
+    grid-area: sidebar; 
+    background: var(--card);
+   }
+
+.content 
+  { 
+    grid-area: content; 
+    padding: 20px; 
+  }
+
+.footer 
+  {
+    grid-area: footer; 
+    background: var(--card); 
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-areas:
+            "header"
+            "content"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+    .sidebar { display: none; }
+}
